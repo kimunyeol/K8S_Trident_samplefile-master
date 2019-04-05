@@ -8,7 +8,7 @@
   - name: Creating basic storageclass 
     shell: kubectl create -f storageclass_hci.yaml
     args:
-      chdir: /home/sangwon
+      chdir: /root
 
   - name: Copying Pvc YAML File
     template: src=sources/hci-basic-pvc.yaml dest=/home/sangwon
@@ -16,7 +16,7 @@
   - name: Creating basic pvc
     shell: kubectl create -f hci-basic-pvc.yaml
     args:
-      chdir: /home/sangwon
+      chdir: /root
       
   - name: Copying Pod YAML File
     template: src=sources/task-pv-pod.yaml dest=/home/sangwon
@@ -24,4 +24,4 @@
   - name: Creating Pod with Mounting Vol 
     shell: kubectl create -f task-pv-pod.yaml
     args:
-      chdir: /home/sangwon      
+      chdir: /root    
