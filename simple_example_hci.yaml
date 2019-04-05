@@ -3,7 +3,7 @@
 
   tasks:
   - name: Copying Storageclass YAML File
-    template: src=sources/storageclass_hci.yaml dest=/home/sangwon
+    template: src=sources/storageclass_hci.yaml dest=/root
     
   - name: Creating basic storageclass 
     shell: kubectl create -f storageclass_hci.yaml
@@ -11,7 +11,7 @@
       chdir: /root
 
   - name: Copying Pvc YAML File
-    template: src=sources/hci-basic-pvc.yaml dest=/home/sangwon
+    template: src=sources/hci-basic-pvc.yaml dest=/root
     
   - name: Creating basic pvc
     shell: kubectl create -f hci-basic-pvc.yaml
@@ -19,7 +19,7 @@
       chdir: /root
       
   - name: Copying Pod YAML File
-    template: src=sources/task-pv-pod.yaml dest=/home/sangwon
+    template: src=sources/task-pv-pod.yaml dest=/root
     
   - name: Creating Pod with Mounting Vol 
     shell: kubectl create -f task-pv-pod.yaml
